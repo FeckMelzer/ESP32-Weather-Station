@@ -12,4 +12,4 @@ _______________________________________
   1) Open the preferences window from the Aduino IDE. Go to *File>Preferences*
   !
   2)Enter *https://dl.espressif.com/dl/package_esp32_index.json* into the "Additional Board Manager URLs" field as shown in the         figure below. Then, click the "OK" button:
-  ![alt text](https://github.com/FeckMelzer/ESP32-Weather-Station/master/ard2.png)
+  ![](https://github.com/FeckMelzer/ESP32-Weather-Station/ard2.png)
