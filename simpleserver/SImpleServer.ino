@@ -10,8 +10,8 @@
 #include <DHT.h>
 
 // Replace with your network credentials
-const char* ssid = "Baminger";
-const char* password = "BaMiNgEr";
+const char* ssid = "Your Network SSID";
+const char* password = "Your Network Password";
 
 #define DHTPIN 27     // Digital pin connected to the DHT sensor
 
