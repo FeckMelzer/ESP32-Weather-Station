@@ -56,3 +56,14 @@ The ESPAsyncWebServer library requires the AsyncTCP library to work. Follow the 
 - Rename your folder from AsyncTCP-master to AsyncTCP
 - Move the AsyncTCP folder to your Arduino IDE installation libraries folder
 - Finally, re-open your Arduino IDE
+
+___________________________
+# Now you are ready to try the code (found in the directory "simple server"
+### This sets up a webserver displaying the currently measured Temperature and Humidity
+
+1) Open the code provided in the .ino file in your Arduino IDE
+2) Change the SSID and Password variables to your Home-Network-Data
+3) Upload to your ESP32
+4) Press the EN button on the ESP32 itself
+5) Click on the lens symbol in the top right corner of the Arduino IDE
+6) Copy the IP adress of the ESP32 and enter it to your browser
