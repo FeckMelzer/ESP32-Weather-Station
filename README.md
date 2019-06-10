@@ -58,7 +58,8 @@ The ESPAsyncWebServer library requires the AsyncTCP library to work. Follow the 
 - Finally, re-open your Arduino IDE
 
 ___________________________
-# Now you are ready to try the code (found in the directory "simple server"
+# Now you are ready to try the code (found in the directory "simple server")
+
 ### This sets up a webserver displaying the currently measured Temperature and Humidity
 
 1) Open the code provided in the .ino file in your Arduino IDE
