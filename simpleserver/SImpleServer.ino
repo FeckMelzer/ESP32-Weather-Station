@@ -10,8 +10,8 @@
 #include <DHT.h>
 
 // Replace with your network credentials
-const char* ssid = "Your Network SSID";
-const char* password = "Your Network Password";
+const char* ssid = "Baminger";
+const char* password = "BaMiNgEr";
 
 #define DHTPIN 27     // Digital pin connected to the DHT sensor
 
@@ -91,6 +91,35 @@ const char index_html[] PROGMEM = R"rawliteral(
     <span id="humidity">%HUMIDITY%</span>
     <sup class="units">%</sup>
   </p>
+  <div id="weather">
+     <div id="description"></div>
+     <h1 id="temp"></h1>
+     <div id="location"></div>
+   </div>
+   <form>
+     <input type="text" id="city" placeholder="Enter city">
+     <input type="button" onclick="getWeather()" value="Submit">
+   </form>
+
+  <script lang="text/javascript">
+    const getWeather = () => {
+      const cityName = document.getElementById('city').value
+      const key = '33feeb29ab8bb8336ef7d4295a68a7ce'
+      const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + key
+      fetch(url)
+      .then((resp) => { return resp.json() })
+      .then((data) => drawWeather(data))
+      .catch(() => {})
+    }
+
+    const drawWeather = (data) => {
+      const celcius = Math.round(parseFloat(data.main.temp)-273.15)
+
+      document.getElementById('description').innerHTML = data.weather[0].description
+      document.getElementById('temp').innerHTML = celcius + '&deg;'
+      document.getElementById('location').innerHTML = data.name
+    }
+  </script>
 </body>
 <script>
 setInterval(function ( ) {
@@ -114,6 +143,7 @@ setInterval(function ( ) {
   xhttp.open("GET", "/humidity", true);
   xhttp.send();
 }, 10000 ) ;
+
 </script>
 </html>)rawliteral";
 
