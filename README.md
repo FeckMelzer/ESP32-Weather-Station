@@ -11,5 +11,5 @@ _______________________________________
 ## 1. Installing the ESP32 Board in ARDUINO STUDIO
   1) Open the preferences window from the Aduino IDE. Go to *File>Preferences*
   !
-  2)Enter *https://dl.espressif.com/dl/package_esp32_index.json* into the "Additional Board kManager URLs" field as shown in the         figure below. Then, click the "OK" button:
-  !(ard2.png)
+  2)Enter *https://dl.espressif.com/dl/package_esp32_index.json* into the "Additional Board Manager URLs" field as shown in the         figure below. Then, click the "OK" button:
+  ![alt text](https://github.com/FeckMelzer/ESP32-Weather-Station/master/ard2.png "Additional Board Manager")
