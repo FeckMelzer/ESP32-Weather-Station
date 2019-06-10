@@ -10,8 +10,11 @@ simple weather station on an ESP32
 _______________________________________
 ## 1. Installing the ESP32 Board in ARDUINO STUDIO
   1) Open the preferences window from the Aduino IDE. Go to *File>Preferences*
-  !
+  
+   ![img2](https://github.com/FeckMelzer/ESP32-Weather-Station/blob/master/ard1.png)
+   
+   
   2)Enter *https://dl.espressif.com/dl/package_esp32_index.json* into the "Additional Board Manager URLs" field as shown in the         figure below. Then, click the "OK" button:
   
   
-  ![img2](https://github.com/FeckMelzer/ESP32-Weather-Station/blob/master/ard1.png)
+  ![img2](https://github.com/FeckMelzer/ESP32-Weather-Station/blob/master/ard2.png)
