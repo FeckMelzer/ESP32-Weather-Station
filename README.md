@@ -6,6 +6,9 @@ _________
 
 ## This sets up a webserver displaying the currently measured Temperature and Humidity
 
+![screenshot](https://github.com/FeckMelzer/ESP32-Weather-Station/blob/master/img/pic.PNG)
+
+
 1) Open the code provided in the .ino file in your Arduino IDE
 2) Change the SSID and Password variables to your Home-Network-Data
 3) Upload to your ESP32
