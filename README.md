@@ -12,4 +12,4 @@ _______________________________________
   1) Open the preferences window from the Aduino IDE. Go to *File>Preferences*
   !
   2)Enter *https://dl.espressif.com/dl/package_esp32_index.json* into the "Additional Board kManager URLs" field as shown in the         figure below. Then, click the "OK" button:
-  ![](http://url/to/ard2.png)
+  !(ard2.png)
