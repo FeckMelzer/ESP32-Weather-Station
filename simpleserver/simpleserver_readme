@@ -1,0 +1,6 @@
+Step One: Open the code provided in the .ino file in your Arduino IDE
+Step Two: Change the SSID and Password variables to your Home-Network-Data
+Step Three: Upload to your ESP32
+Step Four: Press the EN button on the ESP32 itself
+Step Five: Click on the lens symbol in the top right corner of the Arduino IDE
+Step Six: Copy the IP adress of the ESP32 and enter it to your browser
