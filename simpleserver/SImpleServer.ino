@@ -75,6 +75,79 @@ const char index_html[] PROGMEM = R"rawliteral(
       vertical-align:middle;
       padding-bottom: 15px;
     }
+    #weather {
+      max-width: 500px;
+      padding: 10px 20px;
+      background: #f4f7f8;
+      margin: 10px auto;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    #weather h1 {
+      color: #5974d6;
+      margin: 0 0 15px 0;
+    }
+    #city {
+      background: rgba(255, 255, 255, .1);
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      margin: 0;
+      outline: 0;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      background-color: #e8eeef;
+      color: #8a97a0;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+      margin-bottom: 30px;
+    }
+    #weather h2 {
+      margin: 5px 0 5px 0;
+    }
+    #submit {
+      position: relative;
+      display: block;
+      padding: 19px 39px 18px 39px;
+      color: #FFF;
+      margin: 0 auto;
+      background: #5974d6;
+      font-size: 18px;
+      text-align: center;
+      font-style: normal;
+      width: 50%;
+      border: none;
+      margin-bottom: 10px;
+    }
+    #submit:hover {
+      background: #213787;
+    }
+    #error {
+      text-align: left;
+      font-size: 14px;
+      color: #c11b1b;
+    }
+    #output {
+      margin-bottom: 10px;
+    }
+    #weather.sunny {
+      background: linear-gradient(to right top,#ff4e50, #ff713e, #ff932b, #ffb41d, #f9d423);
+    }
+    #weather.cloudy {
+      background: linear-gradient(to right top, #63747c, #71858e, #7f96a0, #8da8b2, #9bbac5);
+    }
+    #weather.rainy {
+      background: linear-gradient(to right top, #637c7b, #718e8c, #7ea09e, #8db2b0, #9bc5c3);
+    }
+    #location {
+      font-size: 24px;
+    }
+    #description {
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
@@ -92,32 +165,51 @@ const char index_html[] PROGMEM = R"rawliteral(
     <sup class="units">%</sup>
   </p>
   <div id="weather">
-     <div id="description"></div>
-     <h1 id="temp"></h1>
-     <div id="location"></div>
-   </div>
-   <form>
-     <input type="text" id="city" placeholder="Enter city">
-     <input type="button" onclick="getWeather()" value="Submit">
-   </form>
+    <h1>Weather</h1>
+    <div id="output">
+      <div id="location"></div>
+      <h2 id="temp"></h2>
+      <div id="description"></div>
+      <div id="error"></div>
+    </div>
+    <form>
+      <input type="text" id="city" placeholder="Enter city">
+      <input type="button" id="submit" onclick="getWeather()" value="Submit">
+    </form>
+  </div>
 
   <script lang="text/javascript">
     const getWeather = () => {
+      document.getElementById('error').innerHTML = ''
       const cityName = document.getElementById('city').value
       const key = '33feeb29ab8bb8336ef7d4295a68a7ce'
       const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + key
       fetch(url)
-      .then((resp) => { return resp.json() })
-      .then((data) => drawWeather(data))
-      .catch(() => {})
+        .then((resp) => {
+          return resp.json()
+        })
+        .then((data) => drawWeather(data))
+        .catch(() => { 
+          document.getElementById('error').innerHTML = 'Please enter a valid city'
+        })
     }
-
+    
     const drawWeather = (data) => {
-      const celcius = Math.round(parseFloat(data.main.temp)-273.15)
+      const celcius = Math.round(parseFloat(data.main.temp) - 273.15)
+      const description = data.weather[0].description
 
-      document.getElementById('description').innerHTML = data.weather[0].description
+      document.getElementById('description').innerHTML = description
       document.getElementById('temp').innerHTML = celcius + '&deg;'
       document.getElementById('location').innerHTML = data.name
+      
+      let weather = document.getElementById('weather')
+      if( description.indexOf('rain') >= 0 ) {
+        weather.className = 'rainy';
+      } else if( description.indexOf('cloud') >= 0 ) {
+        weather.className = 'cloudy';
+      } else if( description.indexOf('sunny') >= 0  || description.indexOf('clear') >= 0) {
+        weather.className = 'sunny';
+      }
     }
   </script>
 </body>
